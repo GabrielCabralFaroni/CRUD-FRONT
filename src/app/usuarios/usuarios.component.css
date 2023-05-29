@@ -1,0 +1,55 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin-bottom: -1.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 3.2;
+    color: inherit;
+}
+
+th:nth-child(1) {
+    color: black;
+    background-color: lightsteelblue;
+}
+
+th:nth-child(2) {
+    color: black;
+    background-color: lightpink;
+}
+
+th:nth-child(3) {
+    color: black;
+    background-color: lightsteelblue;
+}
+
+th:nth-child(4) {
+    color: black;
+    background-color: lightpink;
+}
+
+
+th:nth-child(5) {
+    color: black;
+    background-color: lightsteelblue
+}
+
+button {
+
+    color: rgb(160, 13, 13);
+    font-weight: 700
+}
+
+
+html,
+body {
+    height: 100%;
+
+}
+
+input {
+    font-weight: 490
+}

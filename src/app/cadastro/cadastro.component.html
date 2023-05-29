@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container text-center espacamento">
+        <form [formGroup]="userForm" (ngSubmit)="cadastro(userForm)">
+            <input placeholder="Nome" formControlName="nome">
+            <div
+                *ngIf="userForm.controls['nome'].invalid && (userForm.controls['nome'].dirty || userForm.controls['nome'].touched)">
+                <div *ngIf="userForm.controls['nome'].errors?.['required']">O nome é obrigatório.</div>
+                <div *ngIf="userForm.controls['nome'].errors?.['minlength']?.['required']">O nome deve ter pelo menos 3
+                    caracteres.</div>
+                <div *ngIf="userForm.controls['nome'].errors?.['pattern']">O nome não pode conter números.
+                </div>
+            </div>
+            <input placeholder="CPF" formControlName="cpf">
+            <div *ngIf="userForm.get('cpf')?.hasError('cpfInvalido')">
+                CPF inválido, digite 11 números sem caracteres.
+            </div>
+            <input placeholder="Data de nascimento" formControlName="data_nascimento">
+            <div
+                *ngIf="userForm.controls['data_nascimento'].invalid && (userForm.controls['data_nascimento'].dirty || userForm.controls['data_nascimento'].touched)">
+                <div *ngIf="userForm.controls['data_nascimento'].errors?.['required']">A data de nascimento é
+                    obrigatória.</div>
+                <div *ngIf="userForm.controls['data_nascimento'].errors?.['dataInvalida']">A data de nascimento é
+                    inválida.</div>
+
+            </div>
+            <button mat-raised-button type="submit" color="primary">Salvar</button>
+        </form>
+    </div>
+</body>
+
+</html>
